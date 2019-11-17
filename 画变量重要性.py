@@ -39,6 +39,8 @@ for i in y:
     plt.plot(x1,y1,'k--',linewidth=0.5)
 mpl.rcParams['font.sans-serif'] = [family]
 #画散点
+for a,b in zip(y,x):
+    plt.text(b-0.003,a+0.1,'%.4f' % b)#添加数值标签
 plt.ylim(0,len(x)+1)
 plt.xlim(x[0]-3,x[-1]+3)
 plt.xlabel(xlabel)
