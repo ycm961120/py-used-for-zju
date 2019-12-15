@@ -21,13 +21,14 @@ train_data /= std
 def build_model():
     model = models.Sequential()
     model.add(layers.Dense(8,activation='relu',input_shape=(train_data.shape[1],)))
-    model.add(layers.Dense(8,activation='relu'))
+    model.add(layers.Dropout(0.3))
+    model.add(layers.Dense(4,activation='relu'))
+    model.add(layers.Dense(2,activation='relu'))
     model.add(layers.Dense(1))
     model.compile(optimizer='rmsprop',
                   loss='mse',
                   metrics=['mae'])
     return model
-
 #10折交叉验证
 k = 10
 num_val_samples = len(train_data) // k
